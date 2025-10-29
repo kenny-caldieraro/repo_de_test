@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Moderne</title>
+    <link rel="stylesheet" href="tetris.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>TETRIS</h1>
+            <div class="game-info">
+                <div class="info-box">
+                    <span class="label">Score</span>
+                    <span class="value" id="score">0</span>
+                </div>
+                <div class="info-box">
+                    <span class="label">Niveau</span>
+                    <span class="value" id="level">1</span>
+                </div>
+                <div class="info-box">
+                    <span class="label">Lignes</span>
+                    <span class="value" id="lines">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="side-panel">
+                <div class="next-piece-container">
+                    <h3>Suivant</h3>
+                    <canvas id="nextPieceCanvas" width="120" height="120"></canvas>
+                </div>
+                <div class="controls-info">
+                    <h3>Contrôles</h3>
+                    <div class="control-item">
+                        <kbd>←</kbd><kbd>→</kbd> Déplacer
+                    </div>
+                    <div class="control-item">
+                        <kbd>↑</kbd> Rotation
+                    </div>
+                    <div class="control-item">
+                        <kbd>↓</kbd> Descente rapide
+                    </div>
+                    <div class="control-item">
+                        <kbd>Espace</kbd> Chute
+                    </div>
+                    <div class="control-item">
+                        <kbd>P</kbd> Pause
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-board-container">
+                <canvas id="gameCanvas" width="300" height="600"></canvas>
+                <div id="gameOver" class="game-over-overlay hidden">
+                    <h2>Game Over!</h2>
+                    <p>Score final: <span id="finalScore">0</span></p>
+                    <button id="restartBtn" class="btn-restart">Rejouer</button>
+                </div>
+                <div id="pauseOverlay" class="pause-overlay hidden">
+                    <h2>PAUSE</h2>
+                    <p>Appuyez sur P pour continuer</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-footer">
+            <button id="startBtn" class="btn-start">Démarrer</button>
+        </div>
+    </div>
+
+    <script src="tetris.js"></script>
+</body>
+</html>
