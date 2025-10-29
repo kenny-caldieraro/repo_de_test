@@ -52,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', handleKeyPress);
 
+    // Contrôles tactiles
+    setupTouchControls();
+
     initGrid();
     drawGrid();
 });
@@ -347,6 +350,82 @@ function togglePause() {
         pauseOverlay.classList.add('hidden');
         lastTime = performance.now();
     }
+}
+
+// Configuration des contrôles tactiles
+function setupTouchControls() {
+    const btnLeft = document.getElementById('btnLeft');
+    const btnRight = document.getElementById('btnRight');
+    const btnRotate = document.getElementById('btnRotate');
+    const btnDown = document.getElementById('btnDown');
+    const btnDrop = document.getElementById('btnDrop');
+    const btnPause = document.getElementById('btnPause');
+
+    // Empêcher le comportement par défaut pour tous les boutons
+    const preventDefaults = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
+    // Gauche
+    btnLeft.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        movePiece(-1);
+    });
+    btnLeft.addEventListener('click', (e) => {
+        preventDefaults(e);
+        movePiece(-1);
+    });
+
+    // Droite
+    btnRight.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        movePiece(1);
+    });
+    btnRight.addEventListener('click', (e) => {
+        preventDefaults(e);
+        movePiece(1);
+    });
+
+    // Rotation
+    btnRotate.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        rotatePiece();
+    });
+    btnRotate.addEventListener('click', (e) => {
+        preventDefaults(e);
+        rotatePiece();
+    });
+
+    // Descente
+    btnDown.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        dropPiece();
+    });
+    btnDown.addEventListener('click', (e) => {
+        preventDefaults(e);
+        dropPiece();
+    });
+
+    // Chute instantanée
+    btnDrop.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        hardDrop();
+    });
+    btnDrop.addEventListener('click', (e) => {
+        preventDefaults(e);
+        hardDrop();
+    });
+
+    // Pause
+    btnPause.addEventListener('touchstart', (e) => {
+        preventDefaults(e);
+        togglePause();
+    });
+    btnPause.addEventListener('click', (e) => {
+        preventDefaults(e);
+        togglePause();
+    });
 }
 
 // Démarrer le jeu

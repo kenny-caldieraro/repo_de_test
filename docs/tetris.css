@@ -210,10 +210,60 @@ kbd {
     text-align: center;
 }
 
+/* Contrôles tactiles mobiles */
+.mobile-controls {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.control-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.6);
+}
+
+.control-btn-drop {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+}
+
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
     .game-header h1 {
         font-size: 2em;
         letter-spacing: 4px;
+        margin-bottom: 15px;
     }
 
     .game-content {
@@ -222,17 +272,98 @@ kbd {
     }
 
     .game-info {
-        gap: 15px;
+        gap: 10px;
     }
 
     .info-box {
-        padding: 10px 20px;
-        min-width: 80px;
+        padding: 8px 15px;
+        min-width: 70px;
+    }
+
+    .info-box .label {
+        font-size: 0.75em;
+    }
+
+    .info-box .value {
+        font-size: 1.4em;
+    }
+
+    .side-panel {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .next-piece-container,
+    .controls-info {
+        padding: 15px;
+    }
+
+    .controls-info {
+        display: none;
+    }
+
+    #nextPieceCanvas {
+        width: 100px;
+        height: 100px;
     }
 
     #gameCanvas {
-        width: 250px;
-        height: 500px;
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1 / 2;
+    }
+
+    .mobile-controls {
+        display: block;
+    }
+
+    .game-over-overlay h2,
+    .pause-overlay h2 {
+        font-size: 2em;
+    }
+
+    .game-over-overlay p,
+    .pause-overlay p {
+        font-size: 1.2em;
+    }
+
+    .btn-restart,
+    .btn-start {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-header h1 {
+        font-size: 1.5em;
+        letter-spacing: 2px;
+    }
+
+    .info-box {
+        padding: 6px 12px;
+        min-width: 60px;
+    }
+
+    .info-box .label {
+        font-size: 0.7em;
+    }
+
+    .info-box .value {
+        font-size: 1.2em;
+    }
+
+    .control-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5em;
+    }
+
+    .controls-row {
+        gap: 10px;
     }
 }
 
